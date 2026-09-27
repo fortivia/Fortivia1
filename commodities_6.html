@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html data-theme="llamapress">
+  <head>
+<script>window.llamapressConfig = {"feedbackBubbleEnabled":true,"userLoggedIn":false,"anonymousFeedbackEnabled":false,"feedbackReplayEnabled":false,"feedbackSubmissionToken":null,"appVersion":"dev","releasesUrl":"/llama_bot/releases"};</script>
+    <title>Green Grams (Ndengu)</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Fortivia — A holding company in Western Kenya. Adventures, Interiors, Agribusiness.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="wus_Zqr01OU7dvdIV0srPG7fTDrb2yMfUWGyzUJDmwJwLMuTCYQYEd4_P3SQ7qPmhi7zXTzNZ8Q7LfmyxP63QA" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+      <!-- Earliest-possible error capture. llamapress/console_capture.js is an ES
+       module, so it is DEFERRED — it does not exist yet while the body parses, and
+       an inline <script> that throws during page load would go unrecorded entirely.
+       That is precisely the "I loaded the page and it is broken" error a user most
+       wants to report. This classic script runs before everything and just buffers;
+       console_capture drains it on load (see llamapress/early_error_buffer.js) and
+       nulls the buffer, which is the signal for these listeners to stand down. -->
+  <script>
+    (function () {
+      window.__llamapressEarlyErrors = [];
+      function stash(entry) {
+        var buf = window.__llamapressEarlyErrors;
+        if (buf && buf.length < 25) buf.push(entry);
+      }
+      window.addEventListener("error", function (event) {
+        if (!window.__llamapressEarlyErrors) return;
+        stash({
+          kind: "uncaught",
+          message: event.message,
+          filename: event.filename,
+          lineno: event.lineno,
+          stack: event.error && event.error.stack
+        });
+      });
+      window.addEventListener("unhandledrejection", function (event) {
+        if (!window.__llamapressEarlyErrors) return;
+        var r = event.reason;
+        stash({
+          kind: "unhandled-rejection",
+          message: (r && r.message) || String(r),
+          stack: r && r.stack
+        });
+      });
+    })();
+  </script>
+
+<script>
+  // Force fresh data on every page load - cache busting with timestamp
+  window.page_loaded_at = 1790515752.2054183;
+  window.request_path = "/commodities/6";
+  window.view_path = "app/views/commodities/show.html.erb";
+
+  // The LlamaPress JS config object used to be defined right here, which meant
+  // it only existed on pages rendered through THIS partial — so the feedback
+  // bubble was silently absent from every other layout (prototypes, admin
+  // shells, anything Leo generated). The gem now injects it into the <head> of
+  // every HTML response instead (LlamaBotRails::PageConfigInjection), so there
+  // is one source of truth and no layout can forget it. Nothing to do here.
+
+  // Origins allowed to run JS in this page via the execute-js postMessage command
+  // (the agent's execute_browser_js tool). Fails closed to [] when unset, so
+  // arbitrary JS execution is rejected until an operator configures it. Does NOT
+  // affect any other postMessage command — those are unchanged.
+  window.LLAMABOT_ALLOWED_ORIGINS = [];
+
+  // PostHog analytics config (passed from env vars)
+  window.LLAMABOT_POSTHOG_KEY = null;
+  window.LLAMABOT_POSTHOG_HOST = null;
+
+  // Cap the page snapshot before it is ever handed to the chat. A page that
+  // inlines a lot of content renders to megabytes of markup, and this value is
+  // re-sent on every chat message; the agent only ever reads request_path and
+  // view_path out of it. Mirrors llamapress/payload_caps.js (this partial is an
+  // inline script, so it cannot import the module) and LlamaBot's own ingestion
+  // cap, which is the load-bearing one.
+  var LLAMAPRESS_MAX_PAGE_HTML_BYTES = 64 * 1024;
+
+  function capPageHtml(html) {
+    if (typeof html !== 'string' || html.length <= LLAMAPRESS_MAX_PAGE_HTML_BYTES) return html;
+    var head = html.slice(0, Math.floor(LLAMAPRESS_MAX_PAGE_HTML_BYTES * 0.7));
+    var tail = html.slice(html.length - Math.floor(LLAMAPRESS_MAX_PAGE_HTML_BYTES * 0.2));
+    var omitted = html.length - head.length - tail.length;
+    return head + '\n... [truncated: ' + omitted + ' bytes omitted] ...\n' + tail;
+  }
+
+  // Function to update context variables
+  function updatePageContext() {
+    // These are set fresh on each page load from server-side variables
+    console.log('Page context updated:', {
+      request_path: window.request_path,
+      view_path: window.view_path,
+      loaded_at: window.page_loaded_at
+    });
+  }
+
+  // Wait for entire page to load before calling this
+  document.addEventListener('DOMContentLoaded', function() {
+    window.full_html = capPageHtml(document.documentElement.outerHTML);
+    updatePageContext();
+  });
+
+  // Handle Turbo navigation to ensure fresh context on SPA-style navigation
+  document.addEventListener('turbo:load', function() {
+    // Force refresh of page context on Turbo navigation
+    window.full_html = capPageHtml(document.documentElement.outerHTML);
+    updatePageContext();
+  });
+
+  // Additional event for when Turbo renders new content
+  document.addEventListener('turbo:render', function() {
+    updatePageContext();
+  });
+</script>
+
+    <script>
+      // PostHog init — only when configured
+      (function(){
+        if (window.LLAMABOT_POSTHOG_KEY && window.posthog && window.posthog.init) {
+          try { window.posthog.init(window.LLAMABOT_POSTHOG_KEY, { api_host: window.LLAMABOT_POSTHOG_HOST || 'https://us.i.posthog.com', defaults: '2026-01-30', person_profiles: 'always', crossOriginIframeChild: true }); } catch(e) { console.warn('PostHog init failed', e); }
+        }
+      })();
+    </script>
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4C3F6D">
+    <link rel="icon" href="https://llamapress-ai-image-uploads.s3.us-west-2.amazonaws.com/rz0iwirzz2cwnkd3eoe1uplmzvad" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/application-af2f552f2391aa98ae353ce7d43081f2ab54121c9cfd4aa18e39ca72e199d7b8.css" data-turbo-track="reload" />
+    <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "controllers/record_drawer_controller": "/assets/llama_bot_rails/controllers/record_drawer_controller-021678edfc3a0bf7b6bbc03dd732b89b45b42011fd2bf99f5110219e3fbc6a51.js",
+    "controllers/filter_panel_controller": "/assets/llama_bot_rails/controllers/filter_panel_controller-f4e15febd678af9318cf9e30ef49328483f072efdb8b3bb17d0e0731cc902e79.js",
+    "application": "/assets/application-2c554b6bed8e45104cbfe83bddddd6f4ef48c041fc6f9881bfcb812d89915068.js",
+    "@hotwired/turbo-rails": "/assets/turbo.min-38d030897e3554a265d3a3b6bdf4fb7509b08197ba2b6e3761683c07e776c1bc.js",
+    "@hotwired/stimulus": "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js",
+    "@hotwired/stimulus-loading": "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js",
+    "@rails/actioncable": "/assets/@rails--actioncable-39ab1f3c2587f9fbf7239fae9a8ddfd8cfafd6809ec6dfacd8a4b3ba742ef059.js",
+    "trix": "/assets/trix-b6d103912a6c8078fed14e45716425fb78de5abfbe7b626cd5d9b25b35265066.js",
+    "sortablejs": "/assets/sortablejs-f774108136497c0dcd196d17cbb6ab5f879b38f0d93b77595ab6eacda7710c05.js",
+    "@rails/actiontext": "/assets/actiontext.esm-328ef022563f73c1b9b45ace742bd21330da0f6bd6c1c96d352d52fc8b8857e5.js",
+    "controllers/agri_quote_controller": "/assets/controllers/agri_quote_controller-8d6500639d5fd7caa3815a0a7f9a603ff55f8d83941cc900ceaabd7d8374bcd4.js",
+    "controllers/application": "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js",
+    "controllers/before_after_controller": "/assets/controllers/before_after_controller-213c5196c2cab1a6362349aa3665de6edeaa3fd293c8937dcbabce4925d58810.js",
+    "controllers/brand_theme_preview_controller": "/assets/controllers/brand_theme_preview_controller-dd0805d048d22be73c362f7a3c7aeca9ecdd622e61db208c61f875fad523d9ea.js",
+    "controllers/hello_controller": "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js",
+    "controllers": "/assets/controllers/index-d33d9c947d3ea172e4b42e0f22a7357c11a5c6ff7b22fede86f4a8f854066350.js",
+    "controllers/prototypes/global_controller": "/assets/controllers/prototypes/global_controller-467712ae6cc9f885d0147c0330bb1d4bd5d93715d1b11362b42e585d8e9792e1.js",
+    "controllers/pwa_install_controller": "/assets/controllers/pwa_install_controller-2defc85c8a232f1c361756e31ec82ce20d7a6eac0d886a1be64ac0e08c1a0bcd.js",
+    "controllers/quiz_controller": "/assets/controllers/quiz_controller-d5b0ad31f6e7cffd0f6560c083713520fd75eea1ef6955f393aad94bb87937b6.js",
+    "llamapress/console_capture": "/assets/llamapress/console_capture-a2a40ff5b92f9b9f9ee3bc8e4869b4cc7a7f929cdc14665b249bc2b73677b6fd.js",
+    "llamapress/early_error_buffer": "/assets/llamapress/early_error_buffer-6ae72fafe3ec4044cb35266b40805fc7e69cfcd6e7b66e707f270d1bb69c4483.js",
+    "llamapress/element_selector": "/assets/llamapress/element_selector-0b1ccc4f2b26fb63fcb1581af3bf3f4fde4ad0ccfeb917caf18f3eb9ad8ec4bd.js",
+    "llamapress/error_push_targets": "/assets/llamapress/error_push_targets-1353ac3b5e53395c5e3291fd16fb376c7d906566dfe1efd7f79cce65ad2fa852.js",
+    "llamapress/execute_js_guard": "/assets/llamapress/execute_js_guard-2c0edb22db2da2494b5457e710c63a303576c8b31605a331cb7013bfb91e936b.js",
+    "llamapress/extension_error_filter": "/assets/llamapress/extension_error_filter-7b023bf68fbda58a92476b04977f009c9f17cb1971b7e8650c399e39ae8b1ed6.js",
+    "llamapress/feedback_bubble": "/assets/llamapress/feedback_bubble-e0dd0f60a470ef90107504a45fca6d55c101777ea32fdf4632612ce4452c042c.js",
+    "llamapress/feedback_element_highlight": "/assets/llamapress/feedback_element_highlight-0404eabd825785f7ee36123c0174acfe4b29cd4d9e0a28273caaf1e383c831d8.js",
+    "llamapress/message_handler": "/assets/llamapress/message_handler-331dc6f59005830a65bff2f79bdccc8d69c4f4d57d3a607ae8655f376bff82e4.js",
+    "llamapress/navigation_tracking": "/assets/llamapress/navigation_tracking-34e24c534817d7d0ee489a51fcca13dc07c432ca0cbd51acc4f9ae025819aafd.js",
+    "llamapress/paste_to_attach": "/assets/llamapress/paste_to_attach-914904e4ef875f91292084c1a8631bab8465daaea6421ed09063e44c0b79381b.js",
+    "llamapress/payload_caps": "/assets/llamapress/payload_caps-5f61c3cbf8288f2342ff5f3b719f0327a35fcc27f988aac189ce1b157345e746.js",
+    "llamapress/replay_recorder": "/assets/llamapress/replay_recorder-ad027f722cc78b03f288f11c8c1472a539360fd5431bcfa2479c0b49cc852edb.js",
+    "llamapress/screenshot_annotator": "/assets/llamapress/screenshot_annotator-c470b9662508691efc913064f3179e4cc0a9b5a76909d15f67b7a4d0ad265b9f.js",
+    "llamapress/video_recorder": "/assets/llamapress/video_recorder-fb317011cc2c372abd163cbabbb048ba98e0689e13d49975542439959cd6e915.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/llama_bot_rails/controllers/record_drawer_controller-021678edfc3a0bf7b6bbc03dd732b89b45b42011fd2bf99f5110219e3fbc6a51.js">
+<link rel="modulepreload" href="/assets/llama_bot_rails/controllers/filter_panel_controller-f4e15febd678af9318cf9e30ef49328483f072efdb8b3bb17d0e0731cc902e79.js">
+<link rel="modulepreload" href="/assets/application-2c554b6bed8e45104cbfe83bddddd6f4ef48c041fc6f9881bfcb812d89915068.js">
+<link rel="modulepreload" href="/assets/turbo.min-38d030897e3554a265d3a3b6bdf4fb7509b08197ba2b6e3761683c07e776c1bc.js">
+<link rel="modulepreload" href="/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js">
+<link rel="modulepreload" href="/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js">
+<link rel="modulepreload" href="/assets/@rails--actioncable-39ab1f3c2587f9fbf7239fae9a8ddfd8cfafd6809ec6dfacd8a4b3ba742ef059.js">
+<link rel="modulepreload" href="/assets/trix-b6d103912a6c8078fed14e45716425fb78de5abfbe7b626cd5d9b25b35265066.js">
+<link rel="modulepreload" href="/assets/sortablejs-f774108136497c0dcd196d17cbb6ab5f879b38f0d93b77595ab6eacda7710c05.js">
+<link rel="modulepreload" href="/assets/actiontext.esm-328ef022563f73c1b9b45ace742bd21330da0f6bd6c1c96d352d52fc8b8857e5.js">
+<link rel="modulepreload" href="/assets/controllers/agri_quote_controller-8d6500639d5fd7caa3815a0a7f9a603ff55f8d83941cc900ceaabd7d8374bcd4.js">
+<link rel="modulepreload" href="/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js">
+<link rel="modulepreload" href="/assets/controllers/before_after_controller-213c5196c2cab1a6362349aa3665de6edeaa3fd293c8937dcbabce4925d58810.js">
+<link rel="modulepreload" href="/assets/controllers/brand_theme_preview_controller-dd0805d048d22be73c362f7a3c7aeca9ecdd622e61db208c61f875fad523d9ea.js">
+<link rel="modulepreload" href="/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js">
+<link rel="modulepreload" href="/assets/controllers/index-d33d9c947d3ea172e4b42e0f22a7357c11a5c6ff7b22fede86f4a8f854066350.js">
+<link rel="modulepreload" href="/assets/controllers/prototypes/global_controller-467712ae6cc9f885d0147c0330bb1d4bd5d93715d1b11362b42e585d8e9792e1.js">
+<link rel="modulepreload" href="/assets/controllers/pwa_install_controller-2defc85c8a232f1c361756e31ec82ce20d7a6eac0d886a1be64ac0e08c1a0bcd.js">
+<link rel="modulepreload" href="/assets/controllers/quiz_controller-d5b0ad31f6e7cffd0f6560c083713520fd75eea1ef6955f393aad94bb87937b6.js">
+<link rel="modulepreload" href="/assets/llamapress/console_capture-a2a40ff5b92f9b9f9ee3bc8e4869b4cc7a7f929cdc14665b249bc2b73677b6fd.js">
+<link rel="modulepreload" href="/assets/llamapress/early_error_buffer-6ae72fafe3ec4044cb35266b40805fc7e69cfcd6e7b66e707f270d1bb69c4483.js">
+<link rel="modulepreload" href="/assets/llamapress/element_selector-0b1ccc4f2b26fb63fcb1581af3bf3f4fde4ad0ccfeb917caf18f3eb9ad8ec4bd.js">
+<link rel="modulepreload" href="/assets/llamapress/error_push_targets-1353ac3b5e53395c5e3291fd16fb376c7d906566dfe1efd7f79cce65ad2fa852.js">
+<link rel="modulepreload" href="/assets/llamapress/execute_js_guard-2c0edb22db2da2494b5457e710c63a303576c8b31605a331cb7013bfb91e936b.js">
+<link rel="modulepreload" href="/assets/llamapress/extension_error_filter-7b023bf68fbda58a92476b04977f009c9f17cb1971b7e8650c399e39ae8b1ed6.js">
+<link rel="modulepreload" href="/assets/llamapress/feedback_bubble-e0dd0f60a470ef90107504a45fca6d55c101777ea32fdf4632612ce4452c042c.js">
+<link rel="modulepreload" href="/assets/llamapress/feedback_element_highlight-0404eabd825785f7ee36123c0174acfe4b29cd4d9e0a28273caaf1e383c831d8.js">
+<link rel="modulepreload" href="/assets/llamapress/message_handler-331dc6f59005830a65bff2f79bdccc8d69c4f4d57d3a607ae8655f376bff82e4.js">
+<link rel="modulepreload" href="/assets/llamapress/navigation_tracking-34e24c534817d7d0ee489a51fcca13dc07c432ca0cbd51acc4f9ae025819aafd.js">
+<link rel="modulepreload" href="/assets/llamapress/paste_to_attach-914904e4ef875f91292084c1a8631bab8465daaea6421ed09063e44c0b79381b.js">
+<link rel="modulepreload" href="/assets/llamapress/payload_caps-5f61c3cbf8288f2342ff5f3b719f0327a35fcc27f988aac189ce1b157345e746.js">
+<link rel="modulepreload" href="/assets/llamapress/replay_recorder-ad027f722cc78b03f288f11c8c1472a539360fd5431bcfa2479c0b49cc852edb.js">
+<link rel="modulepreload" href="/assets/llamapress/screenshot_annotator-c470b9662508691efc913064f3179e4cc0a9b5a76909d15f67b7a4d0ad265b9f.js">
+<link rel="modulepreload" href="/assets/llamapress/video_recorder-fb317011cc2c372abd163cbabbb048ba98e0689e13d49975542439959cd6e915.js">
+<script type="module">import "application"</script>
+    <style>
+      :root {
+        --fortivia-holding: #334155;
+        --fortivia-adventures: #c45a2b;
+        --fortivia-interiors: #b7952f;
+        --fortivia-agri: #2d6a4f;
+      }
+      .subsidiary-holding { --sub-accent: var(--fortivia-holding); }
+      .subsidiary-adventures { --sub-accent: var(--fortivia-adventures); }
+      .subsidiary-interiors { --sub-accent: var(--fortivia-interiors); }
+      .subsidiary-agri { --sub-accent: var(--fortivia-agri); }
+    </style>
+    <!-- JSON-LD Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Fortivia",
+      "url": "https://example.org",
+      "description": "A holding company in Western Kenya — Adventures, Interiors, Agribusiness.",
+      "sameAs": []
+    }
+    </script>
+  </head>
+  <body class="min-h-screen bg-base-100 subsidiary-holding">
+    <!-- Escape-hatch nav -->
+    <nav class="navbar bg-base-100 border-b sticky top-0 z-40 backdrop-blur bg-base-100/90">
+      <div class="max-w-7xl mx-auto w-full flex items-center justify-between px-4">
+        <a href="/" class="flex items-center gap-2 font-bold text-lg tracking-tight">
+          <span class="w-8 h-8 rounded-lg flex items-center justify-center text-white text-sm" style="background: var(--sub-accent, #334155)">F</span>
+          Fortivia
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="/adventures" class="btn btn-ghost btn-sm "><i class="fa-solid fa-mountain-sun mr-1"></i> Adventures</a>
+          <a href="/interiors" class="btn btn-ghost btn-sm "><i class="fa-solid fa-couch mr-1"></i> Interiors</a>
+          <a href="/agri" class="btn btn-ghost btn-sm "><i class="fa-solid fa-seedling mr-1"></i> Agribusiness</a>
+          <a href="/contact" class="btn btn-sm ml-2" style="background: var(--sub-accent, #334155); color: white; border: none;">Contact</a>
+        </div>
+        <div class="md:hidden dropdown dropdown-end">
+          <label tabindex="0" class="btn btn-ghost btn-sm"><i class="fa-solid fa-bars"></i></label>
+          <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-2">
+            <li><a href="/adventures">Adventures</a></li>
+            <li><a href="/interiors">Interiors</a></li>
+            <li><a href="/agri">Agribusiness</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="max-w-2xl">
+  <a href="/agri" class="btn btn-ghost btn-xs mb-2"><i class="fa-solid fa-arrow-left mr-1"></i> Stock grid</a>
+  <h1 class="text-3xl font-bold">Green Grams (Ndengu)</h1>
+  <p class="opacity-60 text-sm">Legumes · 50kg bag · Busia</p>
+  <p class="mt-3">Clean, bright, double-sorted ndengu with strong market colour. Packed on request.</p>
+  <div class="mt-2"><span class="badge badge-success">450 50kg bag available</span></div>
+
+  <h3 class="font-bold mt-6 mb-2">Price tiers</h3>
+  <table class="table table-sm bg-base-100 rounded-xl">
+    <thead><tr><th>Min qty</th><th>Unit price (KES)</th></tr></thead>
+    <tbody><tr><td>1</td><td>11500.0</td></tr><tr><td>10</td><td>11200.0</td></tr><tr><td>50</td><td>10900.0</td></tr></tbody>
+  </table>
+
+  <a href="/agri/quote?commodity_id=6" class="btn mt-4 text-white border-0" style="background: var(--fortivia-agri)">Request bulk quote</a>
+</div>
+
+      </main>
+
+    <footer class="border-t mt-12 py-8 bg-base-200">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-4 text-sm text-base-content/60">
+        <div>© 2026 Fortivia — Western Kenya</div>
+        <div class="flex gap-4">
+          <a href="/about" class="link link-hover">About</a>
+          <a href="/contact" class="link link-hover">Contact</a>
+          <a href="/admin" class="link link-hover">Admin</a>
+          <a href="https://wa.me/254718930622" target="_blank" class="link link-hover"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+    <link rel="stylesheet" href="/assets/llama_bot_rails/scaffold-cdf6c58938436a431841f4b0113af214c8ba38c9efb06032a8c7384174c7c6bc.css" data-turbo-track="reload" />
+<div class="llama-drawer hidden fixed inset-0 z-40"
+     data-controller="record-drawer"
+     data-action="keydown.esc@window->record-drawer#close turbo:frame-missing->record-drawer#frameMissing"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Record details">
+  <div class="llama-drawer-backdrop fixed inset-0 bg-gray-600 bg-opacity-50"
+       data-action="click->record-drawer#close"></div>
+  <div class="llama-drawer-panel fixed inset-y-0 right-0 w-full sm:max-w-md bg-white shadow-2xl overflow-y-auto">
+    <div class="sticky top-0 z-10 flex justify-end bg-white border-b border-gray-100 p-2">
+      <button type="button"
+              class="p-3 rounded-md text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+              data-action="record-drawer#close"
+              data-record-drawer-target="closeButton"
+              aria-label="Close details">
+        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="px-4 py-4 sm:px-6">
+      <turbo-frame data-record-drawer-target="frame" data-action="turbo:frame-load-&gt;record-drawer#open" id="record_drawer"></turbo-frame>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

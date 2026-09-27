@@ -1,0 +1,14 @@
+# Cloudflare Pages redirects - keep pretty URLs working
+/adventures    /adventures.html    200
+/interiors     /interiors.html     200
+/agri          /agri.html          200
+/about         /about.html         200
+/contact       /contact.html       200
+/quiz          /quiz.html          200
+/trips         /trips.html         200
+/projects      /projects.html      200
+/commodities   /commodities.html   200
+/agri/quote    /agri_quote.html    200
+/trips/*       /trips_:splat.html  200
+/projects/*    /projects_:splat.html 200
+/commodities/* /commodities_:splat.html 200

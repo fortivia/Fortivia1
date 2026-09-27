@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://example.org/</loc></url>
+  <url><loc>https://example.org/about</loc></url>
+  <url><loc>https://example.org/contact</loc></url>
+  <url><loc>https://example.org/adventures</loc></url>
+  <url><loc>https://example.org/interiors</loc></url>
+  <url><loc>https://example.org/agri</loc></url>
+  <url><loc>https://example.org/trips/1</loc></url><url><loc>https://example.org/trips/2</loc></url><url><loc>https://example.org/trips/3</loc></url><url><loc>https://example.org/trips/4</loc></url>
+  <url><loc>https://example.org/projects/1</loc></url><url><loc>https://example.org/projects/2</loc></url><url><loc>https://example.org/projects/3</loc></url><url><loc>https://example.org/projects/4</loc></url><url><loc>https://example.org/projects/5</loc></url><url><loc>https://example.org/projects/6</loc></url>
+  <url><loc>https://example.org/commodities/1</loc></url><url><loc>https://example.org/commodities/2</loc></url><url><loc>https://example.org/commodities/3</loc></url><url><loc>https://example.org/commodities/4</loc></url><url><loc>https://example.org/commodities/5</loc></url><url><loc>https://example.org/commodities/6</loc></url><url><loc>https://example.org/commodities/7</loc></url><url><loc>https://example.org/commodities/8</loc></url><url><loc>https://example.org/commodities/9</loc></url><url><loc>https://example.org/commodities/10</loc></url><url><loc>https://example.org/commodities/11</loc></url><url><loc>https://example.org/commodities/12</loc></url>
+</urlset>
